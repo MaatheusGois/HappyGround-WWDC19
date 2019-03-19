@@ -3,8 +3,8 @@ import PlaygroundSupport
 import SpriteKit
 import UIKit
 
-
-public class GameScene: SKScene {
+/*
+public class GameSceneOld: SKScene, SKPhysicsContactDelegate {
     
     private var label : SKLabelNode!
     
@@ -48,6 +48,17 @@ public class GameScene: SKScene {
         nossaGrape.physicsBody?.affectedByGravity = false
 //        grape.addChild(image)
         
+        
+        
+        let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+        // 2
+        borderBody.friction = 0
+        // 3
+        self.physicsBody = borderBody
+        
+        
+        
+        nossaGrape.physicsBody!.applyImpulse(CGVector(dx: 2.0, dy: -2.0))
         self.addChild(nossaGrape)
         
         nossaGrape.name = "grape"
@@ -146,31 +157,32 @@ public class GameScene: SKScene {
         self.addChild(cubeLD)
         
         
-        
-        
-        
-//        label = childNode(withName: "//helloLabel") as? SKLabelNode
-//        label.alpha = 0.0
-//        let fadeInOut = SKAction.sequence([.fadeIn(withDuration: 2.0),
-//                                           .fadeOut(withDuration: 2.0)])
-//        label.run(.repeatForever(fadeInOut))
-        
-        // Create shape node to use during mouse interaction
-        let w = (size.width + size.height) * 0.05
-        
-        spinnyNode = SKShapeNode(rectOf: CGSize(width: w, height: w), cornerRadius: w * 0.3)
-        spinnyNode.lineWidth = 2.5
-        
-        let fadeAndRemove = SKAction.sequence([.wait(forDuration: 0.5),
-                                               .fadeOut(withDuration: 0.5),
-                                               .removeFromParent()])
-        spinnyNode.run(.repeatForever(.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-        spinnyNode.run(fadeAndRemove)
+        physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
+        physicsWorld.contactDelegate = self
+//
+////        label = childNode(withName: "//helloLabel") as? SKLabelNode
+////        label.alpha = 0.0
+////        let fadeInOut = SKAction.sequence([.fadeIn(withDuration: 2.0),
+////                                           .fadeOut(withDuration: 2.0)])
+////        label.run(.repeatForever(fadeInOut))
+//
+//        // Create shape node to use during mouse interaction
+//        let w = (size.width + size.height) * 0.05
+//
+//        spinnyNode = SKShapeNode(rectOf: CGSize(width: w, height: w), cornerRadius: w * 0.3)
+//        spinnyNode.lineWidth = 2.5
+//
+//        let fadeAndRemove = SKAction.sequence([.wait(forDuration: 0.5),
+//                                               .fadeOut(withDuration: 0.5),
+//                                               .removeFromParent()])
+//        spinnyNode.run(.repeatForever(.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
+//        spinnyNode.run(fadeAndRemove)
     }
     
-    @objc func grapeTapped() {
-        
-    }
+    
+    
+    
+    
     
     @objc static public override var supportsSecureCoding: Bool {
         // SKNode conforms to NSSecureCoding, so any subclass going
@@ -179,6 +191,12 @@ public class GameScene: SKScene {
             return true
         }
     }
+    
+    
+    
+
+    
+    
     
     func touchDown(atPoint pos : CGPoint) {
 //        guard let n = spinnyNode.copy() as? SKShapeNode else { return }
@@ -211,8 +229,17 @@ public class GameScene: SKScene {
 //        n.strokeColor = SKColor.red
 //        addChild(n)
         //grape.position = CGPoint(x: 0, y: 0)
-        nossaGrape.physicsBody?.applyForce(CGVector(dx: 500, dy: 0), at: pos)
+        nossaGrape.physicsBody?.applyImpulse(CGVector(dx: 20, dy: 0), at: grape.position)
+        
+        
     }
+    
+    
+    
+    
+    
+    //Touch
+    
     
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -255,3 +282,4 @@ public class GameScene: SKScene {
         // Called before each frame is rendered
     }
 }
+*/
