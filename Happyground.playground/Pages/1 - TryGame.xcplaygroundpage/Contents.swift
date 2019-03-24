@@ -16,7 +16,12 @@ PlaygroundSupport.PlaygroundPage.current.liveView = sceneView
  ### HappyGround
  
  Historically, it was believed that babies did not have this ability. The use of nonverbal tasks has allowed researchers to challenge and refute this assumption. Declarative memory is apparent in the first year of life, demonstrated by tasks based on behavioral or non-verbal imitation.
+ 
+ In addition to being fun, these games help in learning, providing guidelines on respect for rules, strategy and time control, giving the child the challenge of overcoming himself.
+ 
+ 
  Thinking about a game that amuses and at the same time teaches spatial logic, HappyGround was developed.
+ 
  
  From Run to practice a little = D
  */
